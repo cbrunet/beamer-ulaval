@@ -1,0 +1,228 @@
+\documentclass{beamer}
+\usefonttheme[onlymath]{serif}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+%\frenchbsetup{CompactItemize=false}
+
+
+% \usepackage[babel]{csquotes}
+% \usepackage[url=false, doi=false, style=science, backend=bibtex, bibencoding=ascii]{biblatex}
+% \bibliography{IEEEabrv,bib/OAM}
+
+  
+\graphicspath{{img/}}
+
+
+\mode<presentation> {
+	% \useoutertheme{infolines} % Pour les thèmes qui n'ont pas de pied-de-page
+	\usetheme{ulaval}
+	%\usecolortheme{ulaval}
+	% \setbeamercovered{transparent}
+	\setbeamercovered{invisible}
+	%\setbeamertemplate{navigation symbols}{} % Enlever les icônes de navigation
+}
+
+
+%\usepackage{bm} 
+% For typesetting bold math (not \mathbold)
+%\includeonlyframes{}
+
+%\usepackage{pgfpages}
+%\setbeameroption{show notes on second screen}
+%\setbeameroption{show notes}
+%\setbeamertemplate{note page}[plain]
+
+\logo{\includegraphics[height=0.6cm]{COPL}\hspace{.5cm}%
+	\includegraphics[height=0.5cm]{UL_P}\hspace{.2cm}\vspace{.85\paperheight}}
+
+
+\title[Short Title]{Long Title}
+%\subtitle[]{}
+
+\author[Short Author Name]{Long Author Name}
+\institute[Université Laval]
+{
+	Electrical and Computer Engineering Department \\
+	Laval University, Quebec City, Canada \\
+	\medskip
+	{\emph{email@ulaval.ca}}
+}
+\date{\today} % \today will show current date. 
+% Alternatively, you can specify a date.
+
+
+\AtBeginSection[]{
+  \begin{frame}
+	\Huge \centerline{\insertsection}
+%  \small \tableofcontents[currentsection, hideothersubsections]
+  \end{frame} 
+}
+
+\begin{document}
+
+
+
+\begin{frame}[label=titre, plain]
+	\titlepage
+	\begin{center}\includegraphics[height=1.2cm]{COPL}%
+		\hspace{2cm}\includegraphics[height=1cm]{UL_P}\end{center}
+\end{frame}
+
+
+\section*{Contents}
+
+\begin{frame}[label=toc]{Outline}
+	\setlength{\leftskip}{5cm}%
+	\tableofcontents[subsectionstyle=show]
+\end{frame}
+
+
+\section{Introduction}
+
+
+\begin{frame}[label=intro]{Introduction slide}
+	This document shows how to use the \emph{ulaval} Beamer template.
+	It gives examples to see how the resulting document looks like.
+\end{frame}
+
+\section{Main Section}
+
+\subsection{List styles}
+
+\subsubsection{Itemize}
+
+\begin{frame}[label=itemize]\frametitle{Itemize sample} 
+	\begin{itemize}
+		\item Item 1
+		\item Item 2
+		\begin{itemize}
+			\item Sub item 1
+			\item Sub item 2
+			\begin{itemize}
+				\item Sub sub sub item 1
+				\item Sub sub sub item 2
+			\end{itemize}
+			\item Sub item 3
+		\end{itemize}
+		\item Item 3
+	\end{itemize}
+\end{frame}
+
+\subsubsection{Enumerate}
+
+\begin{frame}[label=enumerate]\frametitle{Enumerate sample} 
+	\begin{enumerate}
+		\item Item 1
+		\item Item 2
+		\begin{enumerate}
+			\item Sub item 1
+			\item Sub item 2
+			\begin{enumerate}
+				\item Sub sub sub item 1
+				\item Sub sub sub item 2
+			\end{enumerate}
+			\item Sub item 3
+		\end{enumerate}
+		\item Item 3
+	\end{enumerate}
+\end{frame}
+
+\subsubsection{Description}
+
+\begin{frame}[label=description]\frametitle{Description sample}
+    
+\begin{description}
+	\item[Term 1:] Definition 1
+	\item[Term 2:] Definition 2
+	\item[Term 3:] Definition 3
+\end{description}
+
+\end{frame}
+
+\subsection{Boxes styles}
+
+\begin{frame}[label=boxes]\frametitle{Boxes Styles}
+    
+\begin{block}{Block Title}
+	Block content
+\end{block}
+
+\begin{alertblock}{Alert Block Title}
+	Alert block content
+\end{alertblock}
+
+\begin{exampleblock}{Example Block Title}
+	Example block content
+\end{exampleblock}
+
+\end{frame}
+
+\subsection{Block environments}
+
+\begin{frame}[label=environments]\frametitle{Environments Samples}
+    
+	\begin{definition}
+	Definition content
+	\end{definition}
+  
+	\begin{example}
+	Example content
+	\end{example}
+
+	\begin{proof}
+	Proof content
+	\end{proof}  
+    
+	\begin{theorem}
+	Theorem content
+	\end{theorem}
+
+\end{frame}
+
+
+\subsection{Math}
+
+\begin{frame}[label=math]\frametitle{Math}
+    
+\begin{equation}
+	V_0 = k_0 \rho \sqrt{n_1^2 - n_2^2}
+\end{equation}
+
+\end{frame}
+
+
+\subsection{Text environments}
+
+\begin{frame}[label=text]\frametitle{Text Environments}
+    
+\begin{quotation}
+  Quotation environment line 1\\
+  Quotation environment line 2
+\end{quotation}
+\begin{quote}
+  Quote environment line 1\\
+  Quote environment line 2
+\end{quote}
+\begin{semiverbatim}
+  Semiverbatim environment
+\end{semiverbatim}
+\begin{verse}
+  Verse environment line 1\\
+  Verse environment line 2
+\end{verse}  
+
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}[label=conclu]{Conclusion slide}
+	That's all folks!
+\end{frame}
+
+
+
+% End of slides
+\end{document}

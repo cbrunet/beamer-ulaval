@@ -1,0 +1,68 @@
+% Copyright 2013 by Charles Brunet <charles.brunet.1@ulaval.ca>
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\mode<presentation>
+
+\newif\ifbeamer@secheader
+\beamer@secheaderfalse
+
+\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
+\ProcessOptionsBeamer
+
+\usecolortheme{ulaval}
+\useinnertheme{rectangles}
+\useoutertheme{infolines}
+
+%\setbeamertemplate{blocks}[rounded][shadow=true]
+\addtobeamertemplate{block begin}{\setlength\abovedisplayskip{0pt}}
+
+% Tills' opinion: should be done in an inner theme, not here.
+
+\usesubitemizeitemtemplate{%
+    \tiny\raise1.5pt\hbox{\color{beamerstructure}$\blacktriangleright$}%
+}
+\usesubsubitemizeitemtemplate{%
+    \tiny\raise1.5pt\hbox{\color{beamerstructure}$\bigstar$}%
+}
+
+\setbeamersize{text margin left=2em,text margin right=2em}
+
+\ifbeamer@secheader\else\setbeamertemplate{headline}[default]\fi
+
+\addtobeamertemplate{frametitle}{}{%
+%	\begin{textblock*}{100mm}(.89\textwidth,-0.5cm)%
+%	\includegraphics[height=0.6cm,width=1.46cm]{img/UL_P.pdf}%
+%	\end{textblock*}%
+	\vskip-.3cm\hskip-2em%
+	\begin{beamercolorbox}[wd=.85\paperwidth,ht=1pt,left,shadow=true]{separation line}%
+    \end{beamercolorbox}
+}
+
+\defbeamertemplate*{footline}{}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.332\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor~~\beamer@ifempty{\insertshortinstitute}{}{(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.004\paperwidth,ht=2.25ex,dp=1ex,ignorebg]{}\end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.332\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.332\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    %\hspace*{2em}
+    \insertframenumber{} \hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\usebackgroundtemplate{\includegraphics[height=\paperheight]{img/bg.jpg}}
+
+\mode
+<all>

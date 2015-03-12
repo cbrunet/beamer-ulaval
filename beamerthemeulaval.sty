@@ -9,15 +9,24 @@
 
 \mode<presentation>
 
-\newif\ifbeamer@secheader
-\beamer@secheaderfalse
-
-\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
+\newif\ifbeamer@sidebar
+\beamer@sidebarfalse
+\DeclareOptionBeamer{sidebar}[]{\beamer@sidebartrue}
 \ProcessOptionsBeamer
 
 \usecolortheme{ulaval}
 \useinnertheme{rectangles}
+
+\ifbeamer@sidebar
+\useoutertheme[height=0pt, width=1.8cm]{sidebar}
+\else
 \useoutertheme{infolines}
+\setbeamertemplate{headline}[default]
+\fi
+
+\setbeamercolor*{author in head/foot}{parent=palette tertiary}
+\setbeamercolor*{title in head/foot}{parent=palette secondary}
+\setbeamercolor*{date in head/foot}{parent=palette primary}
 
 %\setbeamertemplate{blocks}[rounded][shadow=true]
 \addtobeamertemplate{block begin}{\setlength\abovedisplayskip{0pt}}
@@ -33,14 +42,12 @@
 
 \setbeamersize{text margin left=2em,text margin right=2em}
 
-\ifbeamer@secheader\else\setbeamertemplate{headline}[default]\fi
-
-\addtobeamertemplate{frametitle}{}{%
-%	\begin{textblock*}{100mm}(.89\textwidth,-0.5cm)%
-%	\includegraphics[height=0.6cm,width=1.46cm]{img/UL_P.pdf}%
-%	\end{textblock*}%
-	\vskip-.3cm\hskip-2em%
-	\begin{beamercolorbox}[wd=.85\paperwidth,ht=1pt,left,shadow=true]{separation line}%
+\addtobeamertemplate{frametitle}{\hskip-\beamer@leftsidebar}{%
+\ifbeamer@sidebar
+  \advance\rightskip-2em\hfill\llap{\insertlogo}
+\fi
+  \vskip-.3cm\hskip-\Gm@lmargin%
+	\begin{beamercolorbox}[wd=\paperwidth,ht=1pt,left,shadow=true]{separation line}%
     \end{beamercolorbox}
 }
 
@@ -61,6 +68,14 @@
   \end{beamercolorbox}}%
   \vskip0pt%
 }
+
+\ifbeamer@sidebar
+  \defbeamertemplate*{sidebar \beamer@sidebarside}{ulaval theme}
+  {
+    \vskip1.1cm
+    \insertverticalnavigation{\beamer@sidebarwidth}%
+  }%
+\fi
 
 \usebackgroundtemplate{\includegraphics[height=\paperheight]{img/bg.jpg}}
 
